@@ -25,6 +25,13 @@ CRoorFinder::CRoorFinder()
 
 double 	CRoorFinder::SquareRoot(double v)
 {
-	return 0.0;
+	double result = v;
+	double diff = v;
+	while (diff > result / 1000)
+	{
+		double oldResult = result;
+		result = result - (result*result - v) / (2 * result);
+		diff = abs(oldResult - result);
+	}
+	return result;
 }
-
